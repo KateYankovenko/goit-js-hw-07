@@ -32,10 +32,13 @@ console.log(galleryItems);
 
 //Реалізація делегування на div.gallery
 function onGalleryClick(e) {
+    e.preventDefault();
+
     if (!e.target.tagName === "IMG") {
         return;
     }
-    console.log(e.target);
+
+    console.log(e.target.dataset.source);
 }
 
 
