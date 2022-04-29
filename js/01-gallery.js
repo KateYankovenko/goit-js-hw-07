@@ -29,7 +29,6 @@ function createPictureSetMarup(galleryItems) {
         );
     }).join('');
 }
-console.log(galleryItems);
 
 //Реалізація делегування на div.gallery
 
@@ -61,7 +60,7 @@ function onEscKeyClose(e) {
         instanceModal.onClose();
     }
 }
-
+console.log(galleryItems);
 
 
 
