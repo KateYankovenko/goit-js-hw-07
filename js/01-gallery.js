@@ -6,13 +6,16 @@ const cardsMarkup = createPictureSetMarup(galleryItems);
 
 cardsGallery.insertAdjacentHTML("beforeend", cardsMarkup);
 
+cardsGallery.addEventListener("click", onGalleryClick);
+
+
 function createPictureSetMarup(galleryItems) {
 
     return galleryItems.map(({ preview, original, description }) => {
         return (
             `
     <div class="gallery__item">
-  <a class="gallery__link" href="large-image.jpg">
+  <a class="gallery__link" href="${original}">
     <img
       class="gallery__image"
       src="${preview}"
@@ -25,8 +28,19 @@ function createPictureSetMarup(galleryItems) {
         );
     }).join('');
 }
-
 console.log(galleryItems);
+
+//Реалізація делегування на div.gallery
+function onGalleryClick(e) {
+    if (!e.target.tagName === "IMG") {
+        return;
+    }
+    console.log(e.target);
+}
+
+
+
+
 
 
 
