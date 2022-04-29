@@ -6,6 +6,7 @@ const cardsMarkup = createPictureSetMarup(galleryItems);
 
 cardsGallery.insertAdjacentHTML("beforeend", cardsMarkup);
 
+//Делегування на галерею
 cardsGallery.addEventListener("click", onGalleryClick);
 
 
@@ -34,20 +35,25 @@ console.log(galleryItems);
 
 function onGalleryClick(e) {
     e.preventDefault();
-    const originalImg = e.target.dataset.source;
 
     if (!e.target.tagName === "IMG") {
         return;
     }
-
+    const originalImg = e.target.dataset.source;
     console.log(originalImg);
 
-    //Відкриття віконця
-    const instance = basicLightbox.create(`
-    <img src="${originalImg}"></img>
-`)
-    instance.show()
+    //Відкриття img
+
+    const instanceModal = basicLightbox.create(`
+    <img src="${originalImg}"
+    src="${preview}"
+    alt="${e.target.alt}"/>
+`);
+    instanceModal.show();
+
 }
+
+
 
 
 
