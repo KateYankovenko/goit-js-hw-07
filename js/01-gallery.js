@@ -31,15 +31,24 @@ function createPictureSetMarup(galleryItems) {
 console.log(galleryItems);
 
 //Реалізація делегування на div.gallery
+
 function onGalleryClick(e) {
     e.preventDefault();
+    const originalImg = e.target.dataset.source;
 
     if (!e.target.tagName === "IMG") {
         return;
     }
 
-    console.log(e.target.dataset.source);
+    console.log(originalImg);
+
+    //Відкриття віконця
+    const instance = basicLightbox.create(`
+    <img src="${originalImg}"></img>
+`)
+    instance.show()
 }
+
 
 
 
