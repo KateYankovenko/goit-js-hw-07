@@ -1,7 +1,7 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
-const cardsGallery = document.querySelector(".gallery");
+
 const cardsMarkup = createPictureSetMarup(galleryItems);
 
 cardsGallery.insertAdjacentHTML("beforeend", cardsMarkup);
