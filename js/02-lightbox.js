@@ -29,13 +29,13 @@ function onGalleryLightClick(e) {
     if (!e.target.tagName === "IMG") {
         return;
     }
+    
 }
 
+const lightbox = new SimpleLightbox('.gallery a', {
+        captionsData: "alt",
+        captionDelay: 250,
+    });
 
-// let gallery = new SimpleLightbox ('.gallery a', {captionDelay: 250})
-// console.log(gallery);
-// function addGalleryEl() {
-    
-// }
 
 console.log(galleryItems);
