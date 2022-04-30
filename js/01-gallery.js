@@ -1,7 +1,7 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
-
-
+let instanceModal;
+const cardsGallery = document.querySelector(".gallery");
 const cardsMarkup = createPictureSetMarup(galleryItems);
 
 cardsGallery.insertAdjacentHTML("beforeend", cardsMarkup);
@@ -42,22 +42,23 @@ function onGalleryClick(e) {
     console.log(originalImg);
 
     //Відкриття img
-    if (originalImg) {
+        if (originalImg) {
 
-        const instanceModal = basicLightbox.create(`
-    <img src="${originalImg}"
-    alt="${e.target.alt}"/>
-`, {
-            onShow: () => cardsGallery.addEventListener("keydown", onEscKeyClose),
-            onClose: () => cardsGallery.removeEventListener("keydown", onEscKeyClose)
-        });
-        instanceModal.show();
-    }
-}
+             instanceModal = basicLightbox.create(`
+        <img src="${originalImg}"
+        alt="${e.target.alt}"/>
+        `, {
+                    onShow: () => cardsGallery.addEventListener("keydown", onEscKeyClose),
+                    onClose: () => cardsGallery.removeEventListener("keydown", onEscKeyClose)
+                });
+                instanceModal.show();
+            }
+        }
+
 
 function onEscKeyClose(e) {
-    if (e.code == "Escape") {
-        instanceModal.onClose();
+    if (e.code === "Escape") {
+        instanceModal.close();
     }
 }
 console.log(galleryItems);
