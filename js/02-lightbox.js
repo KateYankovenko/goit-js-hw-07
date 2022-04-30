@@ -2,9 +2,12 @@ import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
 const cardsGallery = document.querySelector(".gallery");
+const cardsMarkup = createPictureSetMarkup(galleryItems);
 
+cardsGallery.insertAdjacentHTML("beforeend", cardsMarkup);
+cardsGallery.addEventListener("click", onGalleryLightClick);
 
-function createPictureSetMarup(galleryItems) {
+function createPictureSetMarkup(galleryItems) {
 
     return galleryItems.map(({ preview, original, description }) => {
         return (
@@ -20,5 +23,19 @@ function createPictureSetMarup(galleryItems) {
 }
 
 
+function onGalleryLightClick(e) {
+    e.preventDefault();
+
+    if (!e.target.tagName === "IMG") {
+        return;
+    }
+}
+
+
+// let gallery = new SimpleLightbox ('.gallery a', {captionDelay: 250})
+// console.log(gallery);
+// function addGalleryEl() {
+    
+// }
 
 console.log(galleryItems);

@@ -2,7 +2,7 @@ import { galleryItems } from './gallery-items.js';
 // Change code below this line
 let instanceModal;
 const cardsGallery = document.querySelector(".gallery");
-const cardsMarkup = createPictureSetMarup(galleryItems);
+const cardsMarkup = createPictureSetMarkup(galleryItems);
 
 cardsGallery.insertAdjacentHTML("beforeend", cardsMarkup);
 
@@ -10,7 +10,7 @@ cardsGallery.insertAdjacentHTML("beforeend", cardsMarkup);
 cardsGallery.addEventListener("click", onGalleryClick);
 
 
-function createPictureSetMarup(galleryItems) {
+function createPictureSetMarkup(galleryItems) {
 
     return galleryItems.map(({ preview, original, description }) => {
         return (
